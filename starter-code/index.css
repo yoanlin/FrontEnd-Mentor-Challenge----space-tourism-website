@@ -1,8 +1,9 @@
-/* ------------------ */
-/* Custom properties  */
-/* ------------------ */
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
 
 :root {
+  /* colors */
   --clr-dark: 230 35% 7%;
   --clr-light: 231 77% 90%;
   --clr-white: 0 0% 100%;
@@ -25,7 +26,6 @@
 
 @media (min-width: 35em) {
   :root {
-    --fs-900: 9.375rem;
     --fs-800: 5rem;
     --fs-700: 2.5rem;
     --fs-600: 1.5rem;
@@ -43,19 +43,20 @@
   }
 }
 
-/* ------------------ */
-/* Reset              */
-/* ------------------ */
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset/ */
 
 /* Box sizing */
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Resest margins */
+/* Reset margins */
 body,
 h1,
 h2,
@@ -91,9 +92,9 @@ body {
   grid-template-rows: min-content 1fr;
 }
 
-/* make image easier to work with */
+/* make images easier to work with */
 img,
-picture {
+picutre {
   max-width: 100%;
   display: block;
 }
@@ -134,6 +135,14 @@ select {
   gap: var(--gap, 1rem);
 }
 
+.d-block {
+  display: block;
+}
+
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-space, 1rem);
+}
+
 .container {
   padding-inline: 2em;
   margin-inline: auto;
@@ -141,21 +150,37 @@ select {
 }
 
 .grid-container {
+  text-align: center;
   display: grid;
+  place-items: center;
+  padding-inline: 1rem;
+}
+
+.grid-container * {
+  max-width: 50ch;
 }
 
 @media (min-width: 45em) {
-  column-gap: var(--container-gap, 2rem);
-  grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
-      2rem,
-      1fr
-    );
+  .grid-container {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(
+        1rem,
+        1fr
+      );
+  }
+
   .grid-container > *:first-child {
     grid-column: 2;
   }
 
   .grid-container > *:last-child {
     grid-column: 3;
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+    align-items: end;
   }
 }
 
@@ -171,7 +196,7 @@ select {
   border: 0;
 }
 
-/*  colors */
+/* colors */
 
 .bg-dark {
   background-color: hsl(var(--clr-dark));
@@ -251,11 +276,25 @@ select {
   line-height: 1.1;
 }
 
-/* ------------------ */
-/* components         */
-/* ------------------ */
+.numbered-title {
+  font-family: var(--ff-sans-cond);
+  font-size: var(--fs-500);
+  text-transform: uppercase;
+  letter-spacing: 4.72px;
+}
+
+.numbered-title span {
+  margin-right: 0.5em;
+  font-weight: 700;
+  color: hsl(var(--clr-white) / 0.25);
+}
+
+/* ------------------- */
+/* Compontents         */
+/* ------------------- */
 
 .large-button {
+  font-size: 2rem;
   position: relative;
   z-index: 1;
   display: inline-grid;
@@ -266,8 +305,22 @@ select {
   text-decoration: none;
 }
 
-.home {
-  background-image: url("./assets/home/background-home-desktop.jpg");
+.large-button::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: hsl(var(--clr-white) / 0.1);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 500ms linear, transform 750ms ease-in-out;
+}
+
+.large-button:hover::after,
+.large-button:focus::after {
+  opacity: 1;
+  transform: scale(1.5);
 }
 
 .primary-navigation {
@@ -325,6 +378,7 @@ select {
 .dot-indicators > [aria-selected="true"] {
   background-color: hsl(var(--clr-white) / 1);
 }
+
 /* ----------------------------- */
 /* Page specific background      */
 /* ----------------------------- */
