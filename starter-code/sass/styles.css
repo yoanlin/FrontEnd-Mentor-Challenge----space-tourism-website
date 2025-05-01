@@ -282,6 +282,7 @@ body {
          column-gap: 3rem;
     background-color: hsla(0, 0%, 100%, 0.1);
     padding-inline: clamp(1rem, 10vw - 1.5rem, 10rem) max(1rem, 3vw - 1rem);
+    transform: translateX(0);
   }
 }
 @media (min-width: 375px) {
@@ -387,8 +388,6 @@ body {
 .logo {
   margin-left: 1rem;
   margin-top: 1rem;
-  width: 3rem;
-  aspect-ratio: 1;
 }
 @media (min-width: 375px) {
   .logo {
