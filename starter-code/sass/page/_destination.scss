@@ -1,0 +1,60 @@
+@use "../base/mixin" as mixin;
+@use "../base/theme" as theme;
+
+.destination {
+  background-image: url("../assets/destination/background-destination-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include mixin.respond-to(md) {
+    background-image: url("../assets/destination/background-destination-tablet.jpg");
+  }
+
+  @include mixin.respond-to(lg) {
+    background-image: url("../assets/destination/background-destination-desktop.jpg");
+  }
+}
+
+.planet-img {
+  width: 100%;
+  max-width: 40vw;
+}
+
+.destination-tabs {
+  column-gap: 2rem;
+  justify-content: center;
+}
+
+.destination-tabs > button {
+  background-color: transparent;
+  border: none;
+  padding-block: 1rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+
+  &[aria-selected="true"] {
+    border-bottom: 2px solid hsl(0, 0%, 100%);
+    color: hsl(map-get(theme.$colors, "white"));
+  }
+}
+
+.grid-container--destination {
+  padding-block: 2rem;
+  align-content: start;
+  h1,
+  h2,
+  img,
+  p {
+    margin-bottom: 2rem;
+  }
+
+  hr {
+    border: 0.1px solid hsl(0 0% 100% / 0.25);
+    margin-block: 2rem;
+  }
+
+  p {
+    line-height: 180%;
+    max-width: 20.5rem;
+  }
+}

@@ -445,4 +445,62 @@ p {
 
 .grid-container--home p {
   line-height: 180%;
+}
+
+.destination {
+  background-image: url("../assets/destination/background-destination-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media (min-width: 375px) {
+  .destination {
+    background-image: url("../assets/destination/background-destination-tablet.jpg");
+  }
+}
+@media (min-width: 1024px) {
+  .destination {
+    background-image: url("../assets/destination/background-destination-desktop.jpg");
+  }
+}
+
+.planet-img {
+  width: 100%;
+  max-width: 40vw;
+}
+
+.destination-tabs {
+  -moz-column-gap: 2rem;
+       column-gap: 2rem;
+  justify-content: center;
+}
+
+.destination-tabs > button {
+  background-color: transparent;
+  border: none;
+  padding-block: 1rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+.destination-tabs > button[aria-selected=true] {
+  border-bottom: 2px solid hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 100%);
+}
+
+.grid-container--destination {
+  padding-block: 2rem;
+  align-content: start;
+}
+.grid-container--destination h1,
+.grid-container--destination h2,
+.grid-container--destination img,
+.grid-container--destination p {
+  margin-bottom: 2rem;
+}
+.grid-container--destination hr {
+  border: 0.1px solid hsla(0, 0%, 100%, 0.25);
+  margin-block: 2rem;
+}
+.grid-container--destination p {
+  line-height: 180%;
+  max-width: 20.5rem;
 }/*# sourceMappingURL=styles.css.map */
