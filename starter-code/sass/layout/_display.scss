@@ -1,0 +1,16 @@
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.block {
+  display: block;
+}
+
+.flex-col {
+  @extend .flex;
+  flex-direction: column;
+}

@@ -1,0 +1,75 @@
+@use "../base/mixin" as mixin;
+
+.home {
+  background-image: url("../assets/home/background-home-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include mixin.respond-to(md) {
+    background-image: url("../assets/home/background-home-tablet.jpg");
+  }
+
+  @include mixin.respond-to(lg) {
+    background-image: url("../assets/home/background-home-desktop.jpg");
+  }
+}
+
+.logo {
+  margin-left: 1rem;
+  margin-top: 1rem;
+  width: 3rem;
+  aspect-ratio: 1;
+
+  @include mixin.respond-to(md) {
+    margin-left: 2rem;
+    margin-top: 0;
+    width: 4rem;
+  }
+}
+
+.primary-header {
+  align-items: center;
+  justify-content: space-between;
+
+  @include mixin.respond-to(md) {
+    &::after {
+      content: "";
+      position: relative;
+      right: -2.5rem;
+      height: 1px;
+      background-color: hsl(0 0% 100% / 0.25);
+      z-index: 9999;
+      width: 80%;
+      order: 1;
+    }
+
+    nav {
+      order: 2;
+    }
+  }
+
+  @include mixin.respond-to(lg) {
+    margin-top: 2.5rem;
+  }
+}
+
+.grid-container--home {
+  align-content: space-around;
+
+  @include mixin.respond-to(lg) {
+    align-content: end;
+    padding-bottom: 10rem;
+  }
+}
+
+.grid-container--home h1,
+p {
+  max-width: 34rem;
+  @include mixin.respond-to(lg) {
+    text-align: start;
+  }
+}
+
+.grid-container--home p {
+  line-height: 180%;
+}

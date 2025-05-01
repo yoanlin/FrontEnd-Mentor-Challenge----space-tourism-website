@@ -1,0 +1,23 @@
+@use "../base/mixin" as mixin;
+
+.grid-container {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding-inline: 1rem;
+
+  @include mixin.respond-to(lg) {
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 80rem)) minmax(
+        1rem,
+        1fr
+      );
+
+    & *:first-child {
+      grid-column: 2;
+    }
+
+    & :last-child {
+      grid-column: 3;
+    }
+  }
+}
