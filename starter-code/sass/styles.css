@@ -481,18 +481,16 @@ p {
   margin-bottom: 1.5rem;
   cursor: pointer;
 }
-.destination-tabs > button[aria-selected=true] {
-  border-bottom: 2px solid hsl(0, 0%, 100%);
-  color: hsl(0, 0%, 100%);
-}
-.destination-tabs > button:hover,
-.destination-tabs > button :focus {
+.destination-tabs > button:hover {
   border-color: hsla(0, 0%, 100%, 0.25);
+}
+.destination-tabs > button[aria-selected=true] {
+  border-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 100%);
 }
 
 .grid-container--destination {
-  padding-inline: clamp(2rem, 8vw - 2rem, 8rem);
-  padding-top: 3rem;
+  padding: 3rem clamp(2rem, 8vw - 2rem, 8rem);
   align-content: start;
 }
 .grid-container--destination h1,
@@ -512,6 +510,11 @@ p {
   width: 100%;
   height: 100%;
 }
+@media (min-width: 1024px) {
+  .grid-container--destination h2 {
+    margin-bottom: 0.5rem;
+  }
+}
 
 @media (min-width: 375px) {
   .destination-title {
@@ -529,7 +532,7 @@ p {
 }
 @media (min-width: 1024px) {
   .destination-info-container article {
-    max-width: 26rem;
+    max-width: 28rem;
   }
 }
 
