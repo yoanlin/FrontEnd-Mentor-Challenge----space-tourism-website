@@ -16,8 +16,11 @@
 }
 
 .planet-img {
-  width: 100%;
   max-width: 40vw;
+
+  @include mixin.respond-to(lg) {
+    margin-top: 7rem;
+  }
 }
 
 .destination-tabs {
@@ -28,6 +31,7 @@
 .destination-tabs > button {
   background-color: transparent;
   border: none;
+  border-bottom: 2px solid transparent;
   padding-block: 1rem;
   margin-bottom: 1.5rem;
   cursor: pointer;
@@ -36,15 +40,20 @@
     border-bottom: 2px solid hsl(0, 0%, 100%);
     color: hsl(map-get(theme.$colors, "white"));
   }
+
+  &:hover,
+  :focus {
+    border-color: hsl(0 0% 100% / 0.25);
+  }
 }
 
 .grid-container--destination {
-  padding-block: 2rem;
+  padding-inline: clamp(2rem, 8vw - 2rem, 8rem);
+  padding-top: 3rem;
   align-content: start;
   h1,
   h2,
-  img,
-  p {
+  img {
     margin-bottom: 2rem;
   }
 
@@ -55,6 +64,48 @@
 
   p {
     line-height: 180%;
-    max-width: 20.5rem;
+    margin: 0 auto;
+  }
+
+  section {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.destination-title {
+  @include mixin.respond-to(md) {
+    text-align: start;
+  }
+}
+
+.destination-info-container {
+  @include mixin.respond-to(lg) {
+    align-items: start;
+    padding-top: 5rem;
+    justify-content: center;
+    text-align: start;
+  }
+
+  article {
+    @include mixin.respond-to(lg) {
+      max-width: 26rem;
+    }
+  }
+}
+
+.destination-info {
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+
+  @include mixin.respond-to(md) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  @include mixin.respond-to(lg) {
+    justify-content: start;
+    gap: 5rem;
   }
 }

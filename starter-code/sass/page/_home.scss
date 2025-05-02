@@ -14,43 +14,6 @@
   }
 }
 
-.logo {
-  margin-left: 1rem;
-  margin-top: 1rem;
-
-  @include mixin.respond-to(md) {
-    margin-left: 2rem;
-    margin-top: 0;
-    width: 4rem;
-  }
-}
-
-.primary-header {
-  align-items: center;
-  justify-content: space-between;
-
-  @include mixin.respond-to(md) {
-    &::after {
-      content: "";
-      position: relative;
-      right: -2.5rem;
-      height: 1px;
-      background-color: hsl(0 0% 100% / 0.25);
-      z-index: 9999;
-      width: 80%;
-      order: 1;
-    }
-
-    nav {
-      order: 2;
-    }
-  }
-
-  @include mixin.respond-to(lg) {
-    margin-top: 2.5rem;
-  }
-}
-
 .grid-container--home {
   align-content: space-around;
 
