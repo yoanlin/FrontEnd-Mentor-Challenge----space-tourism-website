@@ -203,6 +203,10 @@ body {
   color: hsl(0, 0%, 100%);
 }
 
+.text-gray {
+  color: hsl(0, 0%, 60%);
+}
+
 .bg-dark {
   background-color: hsl(230, 35%, 7%);
 }
@@ -213,6 +217,10 @@ body {
 
 .bg-white {
   background-color: hsl(0, 0%, 100%);
+}
+
+.bg-gray {
+  background-color: hsl(0, 0%, 60%);
 }
 
 .grid {
@@ -233,7 +241,7 @@ body {
 
 .grid-container {
   display: grid;
-  place-items: center;
+  justify-items: center;
   text-align: center;
   padding-inline: 1rem;
 }
@@ -277,6 +285,7 @@ body {
 .logo {
   margin-left: 1rem;
   margin-top: 1rem;
+  width: 2.5rem;
 }
 @media (min-width: 375px) {
   .logo {
@@ -290,11 +299,8 @@ body {
   margin: 0;
   padding: 10rem 1rem;
   position: fixed;
-  top: 0;
-  right: 0;
+  inset: 0 0 0 30%;
   z-index: 1000;
-  width: 70%;
-  height: 100vh;
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   flex-direction: column;
@@ -343,11 +349,11 @@ body {
   background-position: center;
   border: none;
   cursor: pointer;
-  width: 3rem;
+  width: 1.5rem;
   aspect-ratio: 1;
   position: absolute;
   z-index: 2000;
-  top: 1rem;
+  top: 1.5rem;
   right: 1rem;
 }
 @media (min-width: 375px) {
@@ -419,6 +425,15 @@ body {
 
 .grid-container--home {
   align-content: space-around;
+  padding: 1.5rem;
+}
+.grid-container--home span.block {
+  margin-block: 2rem;
+}
+@media (min-width: 375px) {
+  .grid-container--home {
+    padding-block: 5rem;
+  }
 }
 @media (min-width: 1024px) {
   .grid-container--home {
@@ -551,5 +566,97 @@ p {
   .destination-info {
     justify-content: start;
     gap: 5rem;
+  }
+}
+
+.crew {
+  background-image: url("../../assets/crew/background-crew-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.crew h2,
+.crew span {
+  margin-bottom: 1.5rem;
+}
+@media (min-width: 375px) {
+  .crew {
+    backgruond-image: url("../../assets/crew/background-crew-tablet.jpg");
+  }
+}
+@media (min-width: 1024px) {
+  .crew {
+    background-image: url("../../assets/crew/background-crew-desktop.jpg");
+  }
+}
+
+.grid-container--crew {
+  margin-inline: 5rem;
+  position: relative;
+  padding: 3rem 1.5rem 1.5rem 1.5rem;
+  overflow-y: hidden;
+}
+.grid-container--crew :nth-child(1) {
+  row-gap: 2rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 375px) {
+  .grid-container--crew {
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 1024px) {
+  .grid-container--crew {
+    padding-bottom: 3rem;
+  }
+  .grid-container--crew :nth-child(1) {
+    align-items: start;
+    text-align: left;
+  }
+}
+
+.crew-image {
+  width: auto;
+  height: 40vh;
+  align-self: self-end;
+  mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%);
+}
+@media (min-width: 375px) {
+  .crew-image {
+    width: auto;
+    height: 60vh;
+    margin-bottom: -4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .crew-image {
+    margin: 0;
+    height: 65vh;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.crew-tabs {
+  -moz-column-gap: 1rem;
+       column-gap: 1rem;
+  justify-content: center;
+}
+.crew-tabs > button {
+  background-color: hsl(0, 0%, 60%);
+  border-radius: 50%;
+  border: none;
+  max-width: 10px;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+.crew-tabs > button[aria-selected=true] {
+  background-color: hsl(0, 0%, 100%);
+}
+@media (min-width: 1024px) {
+  .crew-tabs > button {
+    width: 15px;
+    margin-bottom: 1.5rem;
   }
 }/*# sourceMappingURL=styles.css.map */

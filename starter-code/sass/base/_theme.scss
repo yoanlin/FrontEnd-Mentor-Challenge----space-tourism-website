@@ -2,6 +2,7 @@ $colors: (
   "dark": 230 35% 7%,
   "accent": 231 77% 90%,
   "white": 0 0% 100%,
+  "gray": 0 0% 60%,
 );
 // text-dark, text-accent, text-white
 @each $key, $value in $colors {

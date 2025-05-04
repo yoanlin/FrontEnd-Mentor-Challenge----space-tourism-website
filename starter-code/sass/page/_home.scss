@@ -16,6 +16,15 @@
 
 .grid-container--home {
   align-content: space-around;
+  padding: 1.5rem;
+
+  span.block {
+    margin-block: 2rem;
+  }
+
+  @include mixin.respond-to(md) {
+    padding-block: 5rem;
+  }
 
   @include mixin.respond-to(lg) {
     align-content: end;
