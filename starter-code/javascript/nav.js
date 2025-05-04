@@ -3,7 +3,10 @@ export function initPrimaryNavigation() {
   const nav = document.querySelector(".primary-navigation");
   const menu = navToggle.querySelector("span");
 
-  if (!navToggle || !nav || !menu) return;
+  if (!navToggle || !nav || !menu) {
+    console.error("Navigation elements not found in the DOM.");
+    return;
+  }
 
   navToggle.addEventListener("click", () => {
     const visibility = menu.getAttribute("aria-expanded");
@@ -25,5 +28,3 @@ export function initPrimaryNavigation() {
     }
   });
 }
-
-initPrimaryNavigation();

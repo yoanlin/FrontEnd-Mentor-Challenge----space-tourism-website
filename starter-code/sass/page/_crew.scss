@@ -21,7 +21,6 @@
 }
 
 .grid-container--crew {
-  margin-inline: 5rem;
   position: relative;
   padding: 3rem 1.5rem 1.5rem 1.5rem;
   overflow-y: hidden;
@@ -35,9 +34,11 @@
 
   @include mixin.respond-to(md) {
     padding-bottom: 0;
+    row-gap: 1.5rem;
   }
 
   @include mixin.respond-to(lg) {
+    margin-inline: 5rem;
     padding-bottom: 3rem;
     :nth-child(1) {
       align-items: start;
@@ -48,7 +49,8 @@
 
 .crew-image {
   width: auto;
-  height: 40vh;
+  object-fit: cover;
+  height: 35vh;
   align-self: self-end;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
   -webkit-mask-image: linear-gradient(
@@ -58,14 +60,13 @@
   );
 
   @include mixin.respond-to(md) {
-    width: auto;
-    height: 60vh;
-    margin-bottom: -4rem;
+    height: 50vh;
+    margin-bottom: -3rem;
   }
 
   @include mixin.respond-to(lg) {
-    margin: 0;
-    height: 65vh;
+    width: fit-content;
+    height: 55vh;
     margin-bottom: 1.5rem;
   }
 }

@@ -590,7 +590,6 @@ p {
 }
 
 .grid-container--crew {
-  margin-inline: 5rem;
   position: relative;
   padding: 3rem 1.5rem 1.5rem 1.5rem;
   overflow-y: hidden;
@@ -604,10 +603,12 @@ p {
 @media (min-width: 375px) {
   .grid-container--crew {
     padding-bottom: 0;
+    row-gap: 1.5rem;
   }
 }
 @media (min-width: 1024px) {
   .grid-container--crew {
+    margin-inline: 5rem;
     padding-bottom: 3rem;
   }
   .grid-container--crew :nth-child(1) {
@@ -618,22 +619,24 @@ p {
 
 .crew-image {
   width: auto;
-  height: 40vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 35vh;
   align-self: self-end;
   mask-image: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0));
   -webkit-mask-image: linear-gradient(to bottom, rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0) 100%);
 }
 @media (min-width: 375px) {
   .crew-image {
-    width: auto;
-    height: 60vh;
-    margin-bottom: -4rem;
+    height: 50vh;
+    margin-bottom: -3rem;
   }
 }
 @media (min-width: 1024px) {
   .crew-image {
-    margin: 0;
-    height: 65vh;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 55vh;
     margin-bottom: 1.5rem;
   }
 }
