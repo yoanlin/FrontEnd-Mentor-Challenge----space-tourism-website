@@ -44,8 +44,17 @@ function updateCrewData(data) {
 }
 
 async function getCrewData() {
-  const response = await fetch("../data.json");
-  const data = await response.json();
-
-  return data.crew;
+  try {
+    const response = await fetch("../data.json");
+    if (!response.ok) {
+      return response.text().then((text) => {
+        throw new Error(`HTTP error! ${response.status}: ${text}`);
+      });
+    }
+    const data = await response.json();
+    return data.crew;
+  } catch (error) {
+    console.error("Error fetching crew data:", error);
+    return [];
+  }
 }

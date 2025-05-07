@@ -1,0 +1,125 @@
+@use "../base/mixin" as mixin;
+@use "../base/theme" as theme;
+
+.technology {
+  background-image: url("../../assets/technology/background-technology-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include mixin.respond-to(md) {
+    background-image: url("../../assets/technology/background-technology-tablet.jpg");
+  }
+
+  @include mixin.respond-to(lg) {
+    background-image: url("../../assets/technology/background-technology-desktop.jpg");
+  }
+
+  & > :nth-child(2) {
+    padding-top: 3rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 5rem;
+
+    @include mixin.respond-to(md) {
+      margin-right: auto;
+      padding-left: 3rem;
+    }
+  }
+
+  p {
+    line-height: 180%;
+    max-width: 490px;
+  }
+}
+
+.grid-container--technology {
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+
+  @include mixin.respond-to(lg) {
+    grid-template-areas: ". content image .";
+    text-align: start;
+  }
+}
+
+.technology-content {
+  padding-inline: 1rem;
+  flex-direction: column;
+  margin-top: 2rem;
+
+  h2 {
+    margin-block: 2rem 1.5rem;
+    @include mixin.respond-to(lg) {
+      margin-top: 0;
+    }
+  }
+  span {
+    margin-top: 1rem;
+  }
+
+  @include mixin.respond-to(lg) {
+    grid-area: content;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+.technology-tabs {
+  justify-content: center;
+  gap: 1rem;
+
+  @include mixin.respond-to(lg) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  > button {
+    background-color: transparent;
+    border: 1px solid hsl(map-get(theme.$colors, "gray"));
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+
+    @include mixin.respond-to(md) {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    @include mixin.respond-to(lg) {
+      width: 5rem;
+      height: 5rem;
+    }
+
+    &[aria-selected="true"] {
+      background-color: hsl(map-get(theme.$colors, "white"));
+      color: hsl(map-get(theme.$colors, "dark"));
+    }
+  }
+}
+
+.image-wrapper {
+  width: 100%;
+  @include mixin.respond-to(lg) {
+    grid-area: image;
+  }
+}
+
+.technology-pic {
+  width: 100%;
+  aspect-ratio: 1.4 / 1;
+  object-fit: cover;
+  object-position: bottom;
+
+  @include mixin.respond-to(md) {
+    aspect-ratio: 2.2 / 1;
+  }
+
+  @include mixin.respond-to(lg) {
+    width: auto;
+  }
+}

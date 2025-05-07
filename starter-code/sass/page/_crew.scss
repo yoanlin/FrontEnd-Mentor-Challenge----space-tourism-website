@@ -40,6 +40,14 @@
   @include mixin.respond-to(lg) {
     margin-inline: 5rem;
     padding-bottom: 3rem;
+
+    & *:first-child {
+      grid-column: 2;
+    }
+
+    & *:last-child {
+      grid-column: 3;
+    }
     :nth-child(1) {
       align-items: start;
       text-align: left;

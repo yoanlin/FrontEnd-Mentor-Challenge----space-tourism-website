@@ -29,6 +29,14 @@
   @include mixin.respond-to(lg) {
     align-content: end;
     padding-bottom: 10rem;
+
+    & *:first-child {
+      grid-column: 2;
+    }
+
+    & *:last-child {
+      grid-column: 3;
+    }
   }
 }
 
