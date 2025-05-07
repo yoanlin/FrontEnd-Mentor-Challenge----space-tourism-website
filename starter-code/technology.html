@@ -20,7 +20,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./sass/styles.css" />
-    <script type="module" src="./javascript/home.js" defer></script>
+    <script type="module" src="./javascript/technology.js" defer></script>
 
     <title>Frontend Mentor | Space tourism website</title>
   </head>
@@ -72,10 +72,12 @@
         <section class="image-wrapper">
           <picture>
             <source
+              id="portrait"
               media="(min-width: 1024px), (max-width: 375px)"
               srcset="./assets/technology/image-launch-vehicle-portrait.jpg"
             />
             <source
+              id="landscape"
               srcset="./assets/technology/image-launch-vehicle-landscape.jpg"
             />
             <img
@@ -88,7 +90,9 @@
 
         <section class="flex technology-content">
           <div class="flex technology-tabs">
-            <button aria-selected="true" class="text-preset-4">1</button>
+            <button aria-selected="true" class="text-preset-4 text-white">
+              1
+            </button>
             <button aria-selected="false" class="text-preset-4 text-white">
               2
             </button>
