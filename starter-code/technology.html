@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&family=Barlow:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./sass/styles.css" />
+    <script type="module" src="./javascript/technology.js" defer></script>
+
+    <title>Frontend Mentor | Space tourism website</title>
+  </head>
+  <body class="technology">
+    <header class="primary-header flex">
+      <div>
+        <img
+          src="./assets/shared/logo.svg"
+          class="logo"
+          alt="space tourism logo"
+        />
+      </div>
+      <button class="mobile-nav-toggle" aria-controls="primary-navigation">
+        <span class="sr-only" aria-expanded="false">Menu</span>
+      </button>
+
+      <nav>
+        <ul id="primary-navigation" class="primary-navigation flex">
+          <li>
+            <a class="text-preset-8 uppercase text-white" href="index.html"
+              ><span class="text-preset-8-bold">00</span>Home</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-preset-8 uppercase text-white"
+              href="destination.html"
+              ><span class="text-preset-8-bold">01</span>Destination</a
+            >
+          </li>
+          <li>
+            <a class="text-preset-8 uppercase text-white" href="crew.html"
+              ><span class="text-preset-8-bold">02</span>Crew</a
+            >
+          </li>
+          <li class="active">
+            <a class="text-preset-8 uppercase text-white" href="technology.html"
+              ><span class="text-preset-8-bold">03</span>Technology</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="flex-col">
+      <h1 class="text-preset-5 text-white uppercase destination-title">
+        <span class="text-gray">03</span> space launch 101
+      </h1>
+      <main class="grid-container grid-container--technology">
+        <section class="image-wrapper">
+          <picture>
+            <source
+              id="portrait"
+              media="(min-width: 1024px), (max-width: 375px)"
+              srcset="./assets/technology/image-launch-vehicle-portrait.jpg"
+            />
+            <source
+              id="landscape"
+              srcset="./assets/technology/image-launch-vehicle-landscape.jpg"
+            />
+            <img
+              class="technology-pic"
+              src="./assets/technology/image-launch-vehicle-landscape.jpg"
+              alt="Launch vehicle"
+            />
+          </picture>
+        </section>
+
+        <section class="flex technology-content">
+          <div class="flex technology-tabs">
+            <button aria-selected="true" class="text-preset-4 text-white">
+              1
+            </button>
+            <button aria-selected="false" class="text-preset-4 text-white">
+              2
+            </button>
+            <button aria-selected="false" class="text-preset-4 text-white">
+              3
+            </button>
+          </div>
+          <article>
+            <h2 class="uppercase text-gray text-preset-4">
+              the terminology...
+              <span class="text-white text-preset-3 block">launch vehicle</span>
+            </h2>
+            <p class="text-accent text-preset-9 l-height-180">
+              A launch vehicle or carrier rocket is a rocket-propelled vehicle
+              used to carry a payload from Earth's surface to space, usually to
+              Earth orbit or beyond. Our WEB-X carrier rocket is the most
+              powerful in operation. Standing 150 metres tall, it's quite an
+              awe-inspiring sight on the launch pad!
+            </p>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

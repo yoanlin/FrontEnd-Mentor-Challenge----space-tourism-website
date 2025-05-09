@@ -1,0 +1,115 @@
+@use "sass:math";
+@use "mixin" as mixin;
+
+/* text-presets */
+$text-presets: (
+  1: (
+    font-size: (
+      default: 80px,
+      md: 144px,
+    ),
+    font-family: "Bellefair",
+    letter-spacing: 0,
+  ),
+  2: (
+    font-size: (
+      default: 56px,
+      md: 80px,
+      lg: 96px,
+    ),
+    font-family: "Bellefair",
+    letter-spacing: 0,
+  ),
+  3: (
+    font-size: (
+      default: 24px,
+      md: 40px,
+      lg: 56px,
+    ),
+    font-family: "Bellefair",
+    letter-spacing: 0,
+  ),
+  4: (
+    font-size: (
+      default: 18px,
+      md: 24px,
+      lg: 32px,
+    ),
+    font-family: "Bellefair",
+    letter-spacing: 0,
+  ),
+  5: (
+    font-size: (
+      default: 20px,
+      lg: 28px,
+    ),
+    font-family: "Barlow Condensed",
+    letter-spacing: 4px,
+  ),
+  6: (
+    font-size: 28px,
+    font-family: "Bellefair",
+    letter-spacing: 0px,
+  ),
+  7: (
+    font-size: 14px,
+    font-family: "Barlow Condensed",
+    letter-spacing: 2px,
+  ),
+  8: (
+    font-size: (
+      default: 14px,
+      lg: 16px,
+    ),
+    font-family: "Barlow Condensed",
+    letter-spacing: 2px,
+  ),
+  9: (
+    font-size: (
+      default: 15px,
+      md: 16px,
+      lg: 18px,
+    ),
+    font-family: "Barlow",
+    letter-spacing: 0,
+  ),
+);
+
+@each $key, $value in $text-presets {
+  .text-preset-#{$key} {
+    // the default font-size
+    // if(condition, trueValue, falseValue)
+    font-size: if(
+      type-of(map-get($value, font-size)) == "map",
+      map-get(map-get($value, font-size), default),
+      map-get($value, font-size)
+    );
+    font-family: map-get($value, font-family);
+    letter-spacing: map-get($value, letter-spacing);
+
+    // the responsive font-size
+    @if type-of(map-get($value, font-size)) == "map" {
+      @each $breakpoint, $size in map-get($value, font-size) {
+        @if $breakpoint != "default" {
+          @include mixin.respond-to($breakpoint) {
+            font-size: $size;
+          }
+        }
+      }
+    }
+  }
+}
+
+.text-preset-8-bold {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+
+  @include mixin.respond-to(md) {
+    font-size: 16px;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

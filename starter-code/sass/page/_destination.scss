@@ -1,0 +1,122 @@
+@use "../base/mixin" as mixin;
+@use "../base/theme" as theme;
+
+.destination {
+  background-image: url("../assets/destination/background-destination-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include mixin.respond-to(md) {
+    background-image: url("../assets/destination/background-destination-tablet.jpg");
+  }
+
+  @include mixin.respond-to(lg) {
+    background-image: url("../assets/destination/background-destination-desktop.jpg");
+  }
+}
+
+.planet-img {
+  max-width: 40vw;
+
+  @include mixin.respond-to(lg) {
+    margin-top: 7rem;
+  }
+}
+
+.destination-tabs {
+  column-gap: 2rem;
+  justify-content: center;
+}
+
+.destination-tabs > button {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding-block: 1rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+
+  &:hover {
+    border-color: hsl(0 0% 100% / 0.25);
+  }
+
+  &[aria-selected="true"] {
+    border-color: hsl(0, 0%, 100%);
+    color: hsl(map-get(theme.$colors, "white"));
+  }
+}
+
+.grid-container--destination {
+  padding: 3rem clamp(2rem, 8vw - 2rem, 8rem);
+  align-content: start;
+  h1,
+  h2,
+  img {
+    margin-bottom: 2rem;
+  }
+
+  hr {
+    border: 0.1px solid hsl(0 0% 100% / 0.25);
+    margin-block: 2rem;
+  }
+
+  p {
+    line-height: 180%;
+    margin: 0 auto;
+  }
+
+  section {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include mixin.respond-to(lg) {
+    & *:first-child {
+      grid-column: 2;
+    }
+
+    & *:last-child {
+      grid-column: 3;
+    }
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.destination-title {
+  @include mixin.respond-to(md) {
+    text-align: start;
+  }
+}
+
+.destination-info-container {
+  @include mixin.respond-to(lg) {
+    align-items: start;
+    padding-top: 5rem;
+    justify-content: center;
+    text-align: start;
+  }
+
+  article {
+    @include mixin.respond-to(lg) {
+      max-width: 28rem;
+    }
+  }
+}
+
+.destination-info {
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+
+  @include mixin.respond-to(md) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  @include mixin.respond-to(lg) {
+    justify-content: start;
+    gap: 5rem;
+  }
+}

@@ -1,0 +1,15 @@
+@use "../base/mixin" as mixin;
+
+.grid-container {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding-inline: 1rem;
+
+  @include mixin.respond-to(lg) {
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 70rem)) minmax(
+        1rem,
+        1fr
+      );
+  }
+}

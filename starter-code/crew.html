@@ -20,12 +20,11 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./sass/styles.css" />
-    <script type="module" src="./javascript/home.js" defer></script>
+    <script type="module" src="./javascript/crew.js" defer></script>
 
     <title>Frontend Mentor | Space tourism website</title>
-    <script src="index.js" defer></script>
   </head>
-  <body class="home">
+  <body class="crew">
     <header class="primary-header flex">
       <div>
         <img
@@ -40,7 +39,7 @@
 
       <nav>
         <ul id="primary-navigation" class="primary-navigation flex">
-          <li class="active">
+          <li>
             <a class="text-preset-8 uppercase text-white" href="index.html"
               ><span class="text-preset-8-bold">00</span>Home</a
             >
@@ -52,7 +51,7 @@
               ><span class="text-preset-8-bold">01</span>Destination</a
             >
           </li>
-          <li>
+          <li aria-selected="true" class="active">
             <a class="text-preset-8 uppercase text-white" href="crew.html"
               ><span class="text-preset-8-bold">02</span>Crew</a
             >
@@ -66,27 +65,36 @@
       </nav>
     </header>
 
-    <div class="grid-container grid-container--home">
-      <div>
-        <h1 class="text-accent text-preset-5 uppercase">
-          So, you want to travel to
-          <span class="block text-preset-1 text-white">Space</span>
+    <main class="grid-container grid-container--crew">
+      <section class="flex-col">
+        <h1 class="text-preset-5 text-white uppercase destination-title">
+          <span class="text-gray">02</span> Meet your crew
         </h1>
+        <div class="crew-info">
+          <h2 class="text-preset-3 text-white uppercase">
+            <span class="block text-preset-4 text-gray">Commander</span>Douglas
+            Hurley
+          </h2>
+          <p class="text-accent text-preset-9">
+            Douglas Gerald Hurley is an American engineer, former Marine Corps
+            pilot and former NASA astronaut. He launched into space for the
+            third time as commander of Crew Dragon Demo-2.
+          </p>
+        </div>
 
-        <p class="text-accent text-preset-9">
-          Let’s face it; if you want to go to space, you might as well genuinely
-          go to outer space and not hover kind of on the edge of it. Well sit
-          back, and relax because we’ll give you a truly out of this world
-          experience!
-        </p>
-      </div>
-      <div>
-        <a
-          href="destination.html"
-          class="large-button uppercase text-preset-4 text-dark bg-white"
-          >Explore</a
-        >
-      </div>
-    </div>
+        <div class="flex crew-tabs">
+          <button aria-selected="true"></button>
+          <button aria-selected="false"></button>
+          <button aria-selected="false"></button>
+          <button aria-selected="false"></button>
+        </div>
+      </section>
+
+      <img
+        src="./assets/crew/image-douglas-hurley.webp"
+        alt="Douglas Hurley"
+        class="crew-image"
+      />
+    </main>
   </body>
 </html>
